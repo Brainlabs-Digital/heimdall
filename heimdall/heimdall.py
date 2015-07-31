@@ -1,16 +1,23 @@
 import os
 import subprocess
 
-from devices import getDevice
+from devices import heimdallDevice
 
 
 def save(url,
          device=None,
-         width=1440,
-         height=900,
+         width=None,
+         height=None,
+         user_agent=None,
          format="PNG",
          fullpage=False):
-    pass
+
+    device = heimdallDevice("iPad")
+    width = width or device.width
+    height = height or device.height
+    user_agent = user_agent or device.user_agent
+
+    screenshot()
 
 
 def png(**kwargs):
@@ -26,6 +33,7 @@ def jpeg(**kwargs):
 def pdf(**kwargs):
     kwargs['format'] = "PDF"
     save(kwargs)
+
 
 def screenshot(*args, **kwargs):
 
@@ -68,11 +76,11 @@ def screenshot(*args, **kwargs):
 
 
 def debug():
-    width, height, user_agent = getDevice("iPad")
+    device = heimdallDevice("iPad")
 
-    print width
-    print height
-    print user_agent
+    print device.width
+    print device.height
+    print device.user_agent
 
 if __name__ == '__main__':
     debug()

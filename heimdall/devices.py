@@ -54,10 +54,19 @@ DEVICES = {
 }
 
 
-def getDevice(device_name):
-    if device_name in DEVICE_ALIASES:
-        device_name = DEVICE_ALIASES[device_name]
-    elif device_name not in DEVICES:
-        return None
+class heimdallDevice(object):
 
-    return DEVICES[device_name]
+    def __init__(self, device_name):
+
+        self.user_agent = None
+        self.width = None
+        self.height = None
+
+        if device_name in DEVICE_ALIASES:
+            w, h, ua = DEVICES[DEVICE_ALIASES[device_name]]
+        elif device_name in DEVICES:
+            w, h, ua = DEVICES[device_name]
+
+        self.user_agent = ua
+        self.width = w
+        self.height = h
