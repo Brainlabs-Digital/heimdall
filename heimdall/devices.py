@@ -14,7 +14,6 @@ DEVICE_ALIASES = {
     "Kindle Fire HD":   "Amazon Kindle Fire HD 8.9 inc",
 
     # Popular devices - older versions
-    "iPhone 3":     "Apple iPhone 3",
     "iPhone 4":     "Apple iPhone 4",
     "iPad 1":       "Apple iPad 1",
     "Nexus 5":      "LG Nexus 5",
@@ -61,6 +60,8 @@ class heimdallDevice(object):
 
     def __init__(self, device_name):
 
+        device_name = device_name or 'iPad'
+
         self.user_agent = None
         self.width = None
         self.height = None
@@ -73,3 +74,6 @@ class heimdallDevice(object):
         self.user_agent = ua
         self.width = w
         self.height = h
+
+    def __repr__(self):
+        return self.user_agent

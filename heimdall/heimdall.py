@@ -7,7 +7,7 @@ from devices import heimdallDevice
 
 def save(url, *args, **kwargs):
 
-    device = heimdallDevice("iPad")
+    device = heimdallDevice(kwargs.get('device', None))
 
     kwargs['width'] = kwargs.get('width', None) or device.width
     kwargs['height'] = kwargs.get('height', None) or device.height
@@ -16,19 +16,19 @@ def save(url, *args, **kwargs):
     screenshot(url, **kwargs)
 
 
-def png(**kwargs):
+def png(url, *args, **kwargs):
     kwargs['format'] = "PNG"
-    save(kwargs)
+    save(url, **kwargs)
 
 
-def jpeg(**kwargs):
+def jpeg(url, *args, **kwargs):
     kwargs['format'] = "JPEG"
-    save(kwargs)
+    save(url, **kwargs)
 
 
-def pdf(**kwargs):
+def pdf(url, *args, **kwargs):
     kwargs['format'] = "PDF"
-    save(kwargs)
+    save(url, **kwargs)
 
 
 def screenshot(url, *args, **kwargs):
@@ -83,13 +83,7 @@ def _image_name_from_url(url):
 
 
 def debug():
-    device = heimdallDevice("iPad")
-
-    print device.width
-    print device.height
-    print device.user_agent
-
-    save('https://www.apple.com')
+    png('https://www.apple.com', device="iPhone 4")
 
 if __name__ == '__main__':
     debug()
