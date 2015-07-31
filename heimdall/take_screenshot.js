@@ -10,25 +10,25 @@ args.dir = '/tmp';
 args.name = 'phantomimg';
 args.ext = 'png';
 args.quality = 100;
-args.user_agent = 'heimdall';
-args.crop_to_visible = false;
-args.max_execution_time = 30000;
-args.render_after = 7000;
-args.resource_timeout = 3000;
+args.useragent = 'heimdall';
+args.croptovisible = false;
+args.maxexecutiontime = 30000;
+args.renderafter = 7000;
+args.resourcetimeout = 3000;
 
 var switches = [
     ['--help', 'Show the help'],
     ['-h', '--height NUMBER', 'Set the height, defaults to ' + args.height],
     ['-w', '--width NUMBER', 'Set the height, defaults to ' + args.width],
-    ['-u', '--useragent TEXT', 'The useragent to set, defaults to ' + args.user_agent],
-    ['-c', '--croptovisible TEXT', 'Include the whole webpage or just the visible bit, defaults to ' + args.crop_to_visible],    
+    ['-u', '--useragent TEXT', 'The useragent to set, defaults to ' + args.useragent],
+    ['-c', '--croptovisible TEXT', 'Include the whole webpage or just the visible bit, defaults to ' + args.croptovisible],    
     ['-d', '--dir TEXT', 'The folder to save to, defaults to ' + args.dir],
     ['-n', '--name TEXT', 'The name of the image to save, defaults to ' + args.name],
     ['-e', '--ext TEXT', 'The extension (and hence format) of the saved image, defaults to ' + args.ext],
     ['-q', '--quality NUMBER', 'The quality of the image to save, defaults to ' + args.quality],
-    ['-r', '--renderafter NUMBER', 'How many ms to wait before we render, defaults to ' + args.render_after],
-    ['-m', '--maxexecutiontime NUMBER', 'How many ms to wait before we die, defaults to ' + args.max_execution_time],
-    ['-t', '--resourcetimeout NUMBER', 'How many ms to wait for each resource to load, defaults to ' + args.resource_timeout],
+    ['-r', '--renderafter NUMBER', 'How many ms to wait before we render, defaults to ' + args.renderafter],
+    ['-m', '--maxexecutiontime NUMBER', 'How many ms to wait before we die, defaults to ' + args.maxexecutiontime],
+    ['-t', '--resourcetimeout NUMBER', 'How many ms to wait for each resource to load, defaults to ' + args.resourcetimeout],
 ]
 
 var parser = new optparse.OptionParser(switches);
@@ -68,7 +68,7 @@ page.viewportSize = {
     height: args.height
 };
 
-if (args.crop_to_visible) {
+if (args.croptovisible) {
     page.clipRect = {
         top: 0,
         left: 0,
@@ -78,8 +78,8 @@ if (args.crop_to_visible) {
 }
 
 // Settings for page open
-page.settings.userAgent = args.user_agent
-page.settings.resourceTimeout = args.resource_timeout;
+page.settings.userAgent = args.useragent
+page.settings.resourceTimeout = args.resourcetimeout;
 
 // Add in some error handling
 page.onResourceError = function(resourceError) {
@@ -116,14 +116,14 @@ try {
                 console.log('SAVED IMAGE: '+ output_path);
                 phantom.exit();
 
-            }, args.render_after);
+            }, args.renderafter);
         }
     });
 
 } finally {
     setTimeout(function() {
         console.log('Status: FAILED')
-        console.log("Max execution time " + args.max_execution_time + " exceeded");
+        console.log("Max execution time " + args.maxexecutiontime + " exceeded");
         phantom.exit(1);
-    }, args.max_execution_time);
+    }, args.maxexecutiontime);
 }

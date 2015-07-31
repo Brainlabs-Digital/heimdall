@@ -83,7 +83,7 @@ def _image_name_from_url(url):
 
 
 def debug():
-    png('https://www.apple.com', device="iPhone 4")
+    png('https://www.apple.com', device="iPhone")
 
 if __name__ == '__main__':
     debug()
