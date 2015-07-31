@@ -1,187 +1,63 @@
-deviceAliases = {
+DEVICE_ALIASES = {
 
-    # Popular devices - generic name points to latest url
-    "iPad":         "Apple iPad 4",
-    "iPad mini":    "Apple iPad mini 3",
-    "iPhone":       "Apple iPhone 6",
-    "iPod":         "Apple iPod Touch",
-    "iPod Touch":   "Apple iPod Touch",
-    "Galaxy":       "Samsung Galaxy S4",
-    "Nexus":        "Motorola Nexus 6",
-    "Nexus 10":     "Samsung Nexus 10",
-    "Surface":      "Microsoft Surface",
-    "Surface Pro":  "Microsoft Surface Pro",
-    "Blackberry":   "Blackberry Leap",
+    # Popular devices - generic name points to latest version
+    "iPad":         "Apple iPad 4",
+    "iPad mini":    "Apple iPad mini 3",
+    "iPhone":       "Apple iPhone 6",
+    "Galaxy":       "Samsung Galaxy S4",
+    "Nexus":        "Motorola Nexus 6",
+    "Nexus 10":     "Samsung Nexus 10",
+    "Surface":      "Microsoft Surface",
+    "Surface Pro":  "Microsoft Surface Pro",
+    "Blackberry":   "Blackberry Z30",
 
     # Popular devices - older versions
-    "iPhone 3":     "Apple iPhone 3",
-    "iPhone 4":     "Apple iPhone 4",
-    "NBED": "NBED",
-    "NBED": "NBED",
-    "NBED": "NBED",
-    "NBED": "NBED",
+    "iPhone 3":     "Apple iPhone 3",
+    "iPhone 4":     "Apple iPhone 4",
+    "iPad 1":       "Apple iPad 1",
+    "Nexus 5":      "LG Nexus 5",
+    "Nexus 7":      "Asus Nexus 7 (v2)"
 }
 
-devices = {
+DEVICES = {
     # Desktops
 
     # Laptops
 
-
     # Smartphones
-    "Apple iPhone 6": (375, 667),
-    "Apple iPhone 5": (320, 568),
-    "Apple iPhone 4": (320, 480),
-    "Apple iPhone 3": (320, 480),
-    "Apple iPod Touch": (320, 568),
-    "LG G3": (360, 640),
-    "LG Optimus G": (384, 640),
-    "Samsung Galaxy Note 2": (360, 640),
-    "Samsung Galaxy Note": (400, 640),
-    "Samsung Galaxy S5": (360, 640),
-    "Samsung Galaxy S4": (360, 640),
-    "Samsung Galaxy S4 mini": (360, 640),
-    "Samsung Galaxy S3": (360, 640),
-    "Samsung Galaxy S3 mini": (320, 533),
-    "Samsung Galaxy S2": (320, 533),
-    "Samsung Galaxy S": (320, 533),
-    "Samsung Galaxy Nexus": (360, 600),
-    "LG Nexus 5": (360, 640),
-    "LG Nexus 4": (384, 640),
-    "Microsoft Lumia 1020": (320, 480),
-    "Microsoft Lumia 925": (320, 480),
-    "Microsoft Lumia 920": (320, 480),
-    "Microsoft Lumia 900": (320, 480),
-    "Microsoft Lumia 830": (320, 480),
-    "Microsoft Lumia 620": (320, 480),
-    "HTC One": (360, 640),
-    "HTC 8X": (320, 480),
-    "HTC Evo 3D": (360, 640),
-    "Sony Xperia Z3": (360, 598),
-    "Sony Xperia Z": (360, 640),
-    "Sony Xperia S": (360, 640),
-    "Sony Xperia P": (360, 640),
-    "Blackberry Leap": (390, 695),
-    "Blackberry Passport": (504, 504),
-    "Blackberry Classic": (390, 390),
-    "Blackberry Q10": (346, 346),
-    "Blackberry Z30": (360, 640),
-    "Blackberry Z10": (384, 640),
-    "Blackberry Torch 9800": (360, 480),
-    "ZTE Open (Firefox OS)": (320, 480),
+    "Apple iPhone 6": (375, 667, "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"),
+    "Apple iPhone 5": (320, 568, "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X; en-us) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"),
+    "Apple iPhone 4": (320, 480, "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_2_1 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8C148 Safari/6533.18.5"),
+    "Blackberry Z30": (360, 640, "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.2372 Mobile Safari/537.10+"),
+    "HTC One": (360, 640, "Mozilla/5.0 (Linux; U; Android 4.2.2; nl-nl; HTC_One_X Build/JDQ39) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"),
+    "LG Nexus 5": (360, 640, "Mozilla/5.0 (Linux; Android 4.4.4; en-us; Nexus 5 Build/JOP40D) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Mobile Safari/537.36"),
+    "Samsung Galaxy S3": (360, 640, "Mozilla/5.0 (Linux; U; Android 4.0; en-us; GT-I9300 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"),
+    "Samsung Galaxy S4": (360, 640, "Mozilla/5.0 (Linux; Android 4.4.2; GT-I9505 Build/JDQ39) AppleWebKit/537.36 (KHTML, like Gecko) Version/1.5 Chrome/28.0.1500.94 Mobile Safari/537.36"),
 
     # Phablets
-    "Apple iPhone 6 Plus": (414, 736),
-    "Motorola Nexus 6": (412, 690),
-    "Microsoft Lumia 1520": (320, 480),
-    "Samsung Galaxy Note 3": (360, 640),
+    "Apple iPhone 6 Plus": (414, 736, "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"),
+    "Motorola Nexus 6": (412, 690, "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 6 Build/LYZ28E) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.20 Mobile Safari/537.36"),
+    "Microsoft Lumia 1520": (320, 480, "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 1520)"),
+    "Samsung Galaxy Note 3": (360, 640, "Mozilla/5.0 (Linux; U; Android 4.3; en-us; SM-N900T Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"),
 
     # Tablets
-    "Apple iPad Air": (768, 1024),
-    "Apple iPad 4": (768, 1024),
-    "Apple iPad 3": (768, 1024),
-    "Apple iPad 2": (768, 1024),
-    "Apple iPad 1": (768, 1024),
-    "Apple iPad mini 3": (768, 1024),
-    "Apple iPad mini 2": (768, 1024),
-    "Apple iPad mini 1": (768, 1024),
-    "Samsung Galaxy Tab 3": (800, 1280),
-    "Samsung Galaxy Tab 2 10 inch": (800, 1280),
-    "Samsung Galaxy Tab": (800, 1280),
-    "Samsung Galaxy Tab 2 7 inch": (600, 1024),
-    "Samsung Nexus 10": (800, 1280),
-    "HTC Nexus 9": (768, 1024),
-    "Asus Nexus 7 (v2)": (600, 960),
-    "Asus Nexus 7 (v1)": (604, 966),
-    "LG G Pad 8.3": (600, 960),
-    "Amazon Kindle Fire HD 8.9 inch": (800, 1280),
-    "Amazon Kindle Fire HD 7 inch": (480, 800),
-    "Amazon Kindle Fire": (600, 1024),
-    "Microsoft Surface Pro": (720, 1280),
-    "Microsoft Surface": (768, 1366),
+    "Amazon Kindle Fire HD 8.9 inch": (800, 1280, "Mozilla/5.0 (Linux; U; Android 4.2.2; en-us; KFSAWI Build/KTU84M) AppleWebKit/537.36 (KHTML, like Gecko) Silk/3.22 like Chrome/34.0.1847.137 Safari/537.36"),
+    "Amazon Kindle Fire": (600, 1024, "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"),
+    "Apple iPad Air": (768, 1024, "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"),
+    "Apple iPad 4": (768, 1024, "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"),
+    "Apple iPad 1": (768, 1024, "Mozilla/5.0 (iPad; CPU OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"),
+    "Apple iPad mini 3": (768, 1024, "Mozilla/5.0 (iPad; CPU OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"),
+    "Asus Nexus 7 (v2)": (600, 960, "Mozilla/5.0 (Linux; Android 4.3; Nexus 7 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Safari/537.36"),
+    "Microsoft Surface Pro": (720, 1280, "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"),
+    "Microsoft Surface": (768, 1366, "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"),
+    "Samsung Nexus 10": (800, 1280, "Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Safari/537.36")
 }
 
 
+def getDevice(device_name):
+    if device_name in DEVICE_ALIASES:
+        device_name = DEVICE_ALIASES[device_name]
+    elif device_name not in DEVICES:
+        return None
 
-# Long list that we will slowly roll out as we fill in the data:
-
-# devices = {
-#     # Desktops
-
-
-#     # Laptops
-
-
-#     # Smartphones
-#     "Apple iPhone 6": (375, 667),
-#     "Apple iPhone 5": (320, 568),
-#     "Apple iPhone 4": (320, 480),
-#     "Apple iPhone 3": (320, 480),
-#     "Apple iPod Touch": (320, 568),
-#     "LG G3": (360, 640),
-#     "LG Optimus G": (384, 640),
-#     "Samsung Galaxy Note 2": (360, 640),
-#     "Samsung Galaxy Note": (400, 640),
-#     "Samsung Galaxy S5": (360, 640),
-#     "Samsung Galaxy S4": (360, 640),
-#     "Samsung Galaxy S4 mini": (360, 640),
-#     "Samsung Galaxy S3": (360, 640),
-#     "Samsung Galaxy S3 mini": (320, 533),
-#     "Samsung Galaxy S2": (320, 533),
-#     "Samsung Galaxy S": (320, 533),
-#     "Samsung Galaxy Nexus": (360, 600),
-#     "LG Nexus 5": (360, 640),
-#     "LG Nexus 4": (384, 640),
-#     "Microsoft Lumia 1020": (320, 480),
-#     "Microsoft Lumia 925": (320, 480),
-#     "Microsoft Lumia 920": (320, 480),
-#     "Microsoft Lumia 900": (320, 480),
-#     "Microsoft Lumia 830": (320, 480),
-#     "Microsoft Lumia 620": (320, 480),
-#     "HTC One": (360, 640),
-#     "HTC 8X": (320, 480),
-#     "HTC Evo 3D": (360, 640),
-#     "Sony Xperia Z3": (360, 598),
-#     "Sony Xperia Z": (360, 640),
-#     "Sony Xperia S": (360, 640),
-#     "Sony Xperia P": (360, 640),
-#     "Blackberry Leap": (390, 695),
-#     "Blackberry Passport": (504, 504),
-#     "Blackberry Classic": (390, 390),
-#     "Blackberry Q10": (346, 346),
-#     "Blackberry Z30": (360, 640),
-#     "Blackberry Z10": (384, 640),
-#     "Blackberry Torch 9800": (360, 480),
-#     "ZTE Open (Firefox OS)": (320, 480),
-
-#     # Phablets
-#     "Apple iPhone 6 Plus": (414, 736),
-#     "Motorola Nexus 6": (412, 690),
-#     "Microsoft Lumia 1520": (320, 480),
-#     "Samsung Galaxy Note 3": (360, 640),
-
-#     # Tablets
-#     "Apple iPad Air": (768, 1024),
-#     "Apple iPad 4": (768, 1024),
-#     "Apple iPad 3": (768, 1024),
-#     "Apple iPad 2": (768, 1024),
-#     "Apple iPad 1": (768, 1024),
-#     "Apple iPad mini 3": (768, 1024),
-#     "Apple iPad mini 2": (768, 1024),
-#     "Apple iPad mini 1": (768, 1024),
-#     "Samsung Galaxy Tab 3": (800, 1280),
-#     "Samsung Galaxy Tab 2 10 inch": (800, 1280),
-#     "Samsung Galaxy Tab": (800, 1280),
-#     "Samsung Galaxy Tab 2 7 inch": (600, 1024),
-#     "Samsung Nexus 10": (800, 1280),
-#     "HTC Nexus 9": (768, 1024),
-#     "Asus Nexus 7 (v2)": (600, 960),
-#     "Asus Nexus 7 (v1)": (604, 966),
-#     "LG G Pad 8.3": (600, 960),
-#     "Amazon Kindle Fire HD 8.9 inch": (800, 1280),
-#     "Amazon Kindle Fire HD 7 inch": (480, 800),
-#     "Amazon Kindle Fire": (600, 1024),
-#     "Microsoft Surface Pro": (720, 1280),
-#     "Microsoft Surface": (768, 1366),
-#     "Blackberry Playbook": (600, 1024)
-# }
+    return DEVICES[device_name]
