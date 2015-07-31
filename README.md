@@ -1,6 +1,8 @@
 # Introduction
 
-Heimdall is a python library that makes it very straightforward to quickly and easily create screenshots from web pages.
+Heimdall is a python library that makes it very straightforward to quickly and easily create screenshots from web pages:
+
+	heimdall.png("https://www.distilled.net/", device="Kindle Fire")
 
 Heimdall knows about lots of common devices, and can simulate them (their resolution and user agent) when you request a screenshot. For example, you could take a screenshot as an original iPad might see a page. However, you can also specify resolution and user agent yourself.
 
