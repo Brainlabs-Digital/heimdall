@@ -1,8 +1,8 @@
 # Introduction
 
-heimdall is a library that makes it very straightforward to quickly and easily create screenshots from web pages.
+Heimdall is a library that makes it very straightforward to quickly and easily create screenshots from web pages.
 
-# Using polly
+# Using Heimdall
 
 NBED - install phantomjs
 
@@ -14,7 +14,7 @@ Simply install it with pip:
 
 - Lots
 
-# Why Polly?
+# Why Heimdall?
 
 Heimdall is the all seeing god of Norse mythology, and this was a hackday project so we got stuck there. :)
 
