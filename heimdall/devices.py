@@ -10,13 +10,16 @@ DEVICE_ALIASES = {
     "Surface":      "Microsoft Surface",
     "Surface Pro":  "Microsoft Surface Pro",
     "Blackberry":   "Blackberry Z30",
+    "Kindle Fire":   "Amazon Kindle Fire",
+    "Kindle Fire HD":   "Amazon Kindle Fire HD 8.9 inc",
 
     # Popular devices - older versions
     "iPhone 3":     "Apple iPhone 3",
     "iPhone 4":     "Apple iPhone 4",
     "iPad 1":       "Apple iPad 1",
     "Nexus 5":      "LG Nexus 5",
-    "Nexus 7":      "Asus Nexus 7 (v2)"
+    "Nexus 7":      "Asus Nexus 7 (v2)",
+    "Galaxy S3":    "Samsung Galaxy S3"
 }
 
 DEVICES = {

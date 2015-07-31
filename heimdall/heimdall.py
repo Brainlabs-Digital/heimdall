@@ -5,17 +5,6 @@ import subprocess
 from devices import heimdallDevice
 
 
-# def save(url,
-#          device=None,
-#          width=None,
-#          height=None,
-#          user_agent=None,
-#          format="PNG",
-#          fullpage=False,
-#          save_dir='/tmp',
-#          image_name=None):
-
-
 def save(url, *args, **kwargs):
 
     device = heimdallDevice("iPad")
