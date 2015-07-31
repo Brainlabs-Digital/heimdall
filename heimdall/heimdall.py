@@ -5,14 +5,14 @@ from devices import heimdallDevice
 
 
 def save(url,
-         device=None,
+         device="iPad",
          width=None,
          height=None,
          user_agent=None,
          format="PNG",
          fullpage=False):
 
-    device = heimdallDevice("iPad")
+    device = heimdallDevice(device)
     width = width or device.width
     height = height or device.height
     user_agent = user_agent or device.user_agent
