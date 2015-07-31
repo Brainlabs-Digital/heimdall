@@ -43,12 +43,18 @@ def screenshot(url, *args, **kwargs):
         '--ssl-protocol=any',
         phantomscript,
         url,
-        '-w ' + str(kwargs['width']),
-        '--height ' + str(kwargs['height']),
-        # '--useragent ' + kwargs['user_agent'],
-        # '--dir ' + kwargs.get('save_dir', '/tmp'),
-        # '--ext ' + kwargs.get('format', 'png').lower(),
-        # '--name ' + image_name,
+        '--width',
+        str(kwargs['width']),
+        '--height',
+        str(kwargs['height']),
+        '--useragent',
+        str(kwargs['user_agent']),
+        '--dir',
+        str(kwargs.get('save_dir', '/tmp')),
+        '--ext',
+        str(kwargs.get('format', 'png').lower()),
+        '--name',
+        str(image_name),
     ]
 
     print cmd_args
@@ -84,8 +90,6 @@ def debug():
     print device.user_agent
 
     save('https://www.apple.com')
-
-    print _image_name_from_url('https://www.apple.com?bill=ben&bob')
 
 if __name__ == '__main__':
     debug()
