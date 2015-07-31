@@ -29,7 +29,7 @@ devices = {
 
 
     # Smartphones
-    "Apple iPhone 6": (375, 667),
+    "Apple iPhone 6": (375, 667, "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"),
     "Apple iPhone 5": (320, 568),
     "Apple iPhone 4": (320, 480),
     "Apple iPhone 3": (320, 480),
