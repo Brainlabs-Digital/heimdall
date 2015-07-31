@@ -1,0 +1,24 @@
+CONTRIBUTING
+
+We love pull requests from everyone. Please be polite and courteous in messages
+and comments with other contributers.
+
+Fork the repo first, then clone your repo:
+
+    git clone git@github.com:YOURUSERNAME/heimdall.git
+
+You should probably setup a virtualenv, and pip install from requirements.txt.
+
+Push to your fork and submit a pull request:
+
+	https://github.com/DistilledLtd/heimdall/compare/
+
+At this point you're waiting on us. We will try to be as quick as possible with
+commenting on and accepting pull requests.
+
+Some things that will increase the chance that your pull request is accepted:
+
+	- Please stick to PEP8
+	- Only PEP8 exception: we allow lines to run to 99 characters.
+	- Comments should still be 72 characters or less.
+	- Write a useful and clear commit message.
