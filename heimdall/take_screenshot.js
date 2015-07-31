@@ -51,6 +51,7 @@ parser.on(1, function(val){
 
 parser.on('*', function(opt, value) {
     if (typeof args[opt] !== 'undefined') {
+        console.log('setting ' + opt + ' to ' + value )
         args[opt] = value
     }
 });
@@ -106,9 +107,13 @@ try {
                     console.log('REDIRECTED_TO: ' + final_url)
                 }
                 
+                for (a in args) {
+                    console.log('ARG[' + a + ']' + ' ' + args[a]);
+                }
+
                 output_path = args.dir + '/' + args.name + '.' + args.ext;
                 page.render(output_path, {format: args.ext, quality: args.quality});
-                console.log('Status: SUCCESS')
+                console.log('SAVED IMAGE: '+ output_path);
                 phantom.exit();
 
             }, args.render_after);

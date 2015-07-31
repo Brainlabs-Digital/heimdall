@@ -1,23 +1,30 @@
 import os
+import re
 import subprocess
 
 from devices import heimdallDevice
 
 
-def save(url,
-         device=None,
-         width=None,
-         height=None,
-         user_agent=None,
-         format="PNG",
-         fullpage=False):
+# def save(url,
+#          device=None,
+#          width=None,
+#          height=None,
+#          user_agent=None,
+#          format="PNG",
+#          fullpage=False,
+#          save_dir='/tmp',
+#          image_name=None):
+
+
+def save(url, *args, **kwargs):
 
     device = heimdallDevice("iPad")
-    width = width or device.width
-    height = height or device.height
-    user_agent = user_agent or device.user_agent
 
-    screenshot()
+    kwargs['width'] = kwargs.get('width', None) or device.width
+    kwargs['height'] = kwargs.get('height', None) or device.height
+    kwargs['user_agent'] = kwargs.get('user_agent', None) or device.user_agent
+
+    screenshot(url, **kwargs)
 
 
 def png(**kwargs):
@@ -35,44 +42,49 @@ def pdf(**kwargs):
     save(kwargs)
 
 
-def screenshot(*args, **kwargs):
+def screenshot(url, *args, **kwargs):
 
-    img_name = kwargs.get('img_name', None) or 'unknownimage'
-    img_ext = kwargs.get('img_ext', None) or 'png'
-    default_save_path = os.path.join('/tmp', img_name + '.' + img_ext)
-    save_path = kwargs.get('save_path', None) or default_save_path
+    phantomscript = os.path.join(os.path.dirname(__file__),
+                                 'take_screenshot.js')
 
-    width = kwargs.get('width', None) or 800
-    height = kwargs.get('height', None) or 600
-
-    default_user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36'
-
-    default_user_agent = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7'
-
-    user_agent = kwargs.get('user_agent', None) or default_user_agent
-
-    url = kwargs.get('url')
-
-    phantomscript = os.path.join(os.path.dirname(__file__), 'take_screenshot.js')
-
-    size_str = '{w}px*{h}px'.format(w=width, h=height)
+    image_name = kwargs.get('image_name', None) or _image_name_from_url(url)
 
     cmd_args = [
         'phantomjs',
         '--ssl-protocol=any',
         phantomscript,
         url,
-        save_path,
-        size_str,
-        user_agent
+        '-w ' + str(kwargs['width']),
+        '--height ' + str(kwargs['height']),
+        # '--useragent ' + kwargs['user_agent'],
+        # '--dir ' + kwargs.get('save_dir', '/tmp'),
+        # '--ext ' + kwargs.get('format', 'png').lower(),
+        # '--name ' + image_name,
     ]
+
+    print cmd_args
+
+    # TODO:
+    # - croptovisible
+    # - quality
+    # - renderafter
+    # - maxexecutiontime
+    # - resourcetimeout
 
     output = subprocess.Popen(cmd_args,
                               stdout=subprocess.PIPE).communicate()[0]
 
     print output
 
-    return save_path
+    # return save_path
+
+
+def _image_name_from_url(url):
+    """Create an image name from the url"""
+
+    find = r'https?://|[^\w]'
+    replace = '_'
+    return re.sub(find, replace, url).strip('_')
 
 
 def debug():
@@ -81,6 +93,10 @@ def debug():
     print device.width
     print device.height
     print device.user_agent
+
+    save('https://www.apple.com')
+
+    print _image_name_from_url('https://www.apple.com?bill=ben&bob')
 
 if __name__ == '__main__':
     debug()
