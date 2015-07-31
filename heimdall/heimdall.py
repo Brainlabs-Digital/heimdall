@@ -1,6 +1,8 @@
 import os
 import subprocess
 
+from devices import getDevice
+
 
 def save(url,
          device=None,
@@ -24,7 +26,6 @@ def jpeg(**kwargs):
 def pdf(**kwargs):
     kwargs['format'] = "PDF"
     save(kwargs)
-
 
 def screenshot(*args, **kwargs):
 
@@ -64,3 +65,14 @@ def screenshot(*args, **kwargs):
     print output
 
     return save_path
+
+
+def debug():
+    width, height, user_agent = getDevice("iPad")
+
+    print width
+    print height
+    print user_agent
+
+if __name__ == '__main__':
+    debug()
