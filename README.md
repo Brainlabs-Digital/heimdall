@@ -8,8 +8,6 @@ You can also specify what format you'd like the output in, and whether you want 
 
 # Installing Heimdall
 
-NBED - install phantomjs
-
 Firstly, you need to install [phantomjs](http://phantomjs.org/):
 
 	npm install phantomjs
