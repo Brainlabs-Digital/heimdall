@@ -1,16 +1,17 @@
-from collections import namedtuple
 import os
 import re
 import subprocess
+from collections import namedtuple
 
 from PIL import Image
 
 from devices import heimdallDevice
 
-
 Screenshot = namedtuple('Screenshot', ['path', 'directory', 'filename', 'ext'])
 
+
 def save(url, *args, **kwargs):
+    """ Parse the options, set defaults and then fire up PhantomJS. """
 
     device = heimdallDevice(kwargs.get('device', None))
 
@@ -29,28 +30,30 @@ def save(url, *args, **kwargs):
 
 def png(url, *args, **kwargs):
     kwargs['format'] = "PNG"
-    save(url, **kwargs)
+    return save(url, **kwargs)
 
 
 def jpeg(url, *args, **kwargs):
     kwargs['format'] = "JPEG"
-    save(url, **kwargs)
+    return save(url, **kwargs)
 
 
 def pdf(url, *args, **kwargs):
     kwargs['format'] = "PDF"
-    save(url, **kwargs)
+    return save(url, **kwargs)
 
 
 def screenshot(url, *args, **kwargs):
+    """ Call PhantomJS with the specified flags and options. """
 
     phantomscript = os.path.join(os.path.dirname(__file__),
                                  'take_screenshot.js')
 
     directory = kwargs.get('save_dir', '/tmp')
     image_name = kwargs.get('image_name', None) or _image_name_from_url(url)
-    ext = kwargs.get('format', 'png')
+    ext = kwargs.get('format', 'png').lower()
     save_path = os.path.join(directory, image_name) + '.' + ext
+    crop_to_visible = kwargs.get('crop_to_visible', False)
 
     cmd_args = [
         'phantomjs',
@@ -70,9 +73,10 @@ def screenshot(url, *args, **kwargs):
         '--name',
         str(image_name),
     ]
+    if crop_to_visible:
+        cmd_args.append('--croptovisible')
 
     # TODO:
-    # - croptovisible
     # - quality
     # - renderafter
     # - maxexecutiontime
@@ -85,7 +89,7 @@ def screenshot(url, *args, **kwargs):
 
 
 def _image_name_from_url(url):
-    """Create an image name from the url"""
+    """ Create a nice image name from the url. """
 
     find = r'https?://|[^\w]'
     replace = '_'
@@ -93,7 +97,9 @@ def _image_name_from_url(url):
 
 
 def debug():
-    png('https://www.apple.com', device="iPhone")
+    """ Debug function - runs if heimdall called directly. """
+
+    png('https://www.distilled.net/', device="iPhone")
 
 if __name__ == '__main__':
     debug()

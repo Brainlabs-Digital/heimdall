@@ -23,8 +23,10 @@ DEVICE_ALIASES = {
 
 DEVICES = {
     # Desktops
+    "Desktop": (1920, 1080, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36"),
 
     # Laptops
+    "Laptop": (1280, 800, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36"),
 
     # Smartphones
     "Apple iPhone 6": (375, 667, "Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/600.1.3 (KHTML, like Gecko) Version/8.0 Mobile/12A4345d Safari/600.1.4"),
@@ -54,8 +56,6 @@ DEVICES = {
     "Microsoft Surface": (768, 1366, "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"),
     "Samsung Nexus 10": (800, 1280, "Mozilla/5.0 (Linux; Android 4.3; Nexus 10 Build/JSS15Q) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2307.2 Safari/537.36"),
 
-    # Desktops
-    "Laptop": (1366, 768, "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36"),
 }
 
 

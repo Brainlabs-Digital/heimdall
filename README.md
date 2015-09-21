@@ -8,6 +8,8 @@ Heimdall knows about lots of common devices, and can simulate them (their resolu
 
 You can also specify what format you'd like the output in, and whether you want to crop the image based on the display size, or if you would rather get the whole webpage.
 
+NOTE: Heimdall uses PhantomJS and as such does not fully support device-pixel-ratio for emulating devices with hige density displays - this doesn't seem to matter for most purposes but you should be aware. There is a [$1000 bounty](https://github.com/ariya/phantomjs/issues/10964) for anyone who can get the functionality added to PhantomJS.
+
 # Installing Heimdall
 
 Firstly, you need to install [phantomjs](http://phantomjs.org/):
@@ -29,17 +31,34 @@ Quick and easy:
 	heimdall.png("https://www.distilled.net/", device="Kindle Fire")
 	heimdall.jpeg("https://www.facebook.com/", device="iPhone") # Will use iPhone 6
 	heimdall.pdf("http://news.ycombinator.com", device="iPhone 3") # Specify a device version
+	heimdall.pdf("https://twitter.com/", device="Laptop")
 
-	heimdall.png("http://www.apple.com/", full_page=True) # Don't crop the image
+	heimdall.png("https://github.com/", crop_to_visible=True) # Crop the image
 	heimdall.png("http://www.tomanthony.co.uk/", width=1440, height=900) # Specify own display size
+
+You can get information about the screenshot you took:
+
+	screenshot = heimdall.png("https://www.distilled.net/", width=1440, height=900)
+
+	screenshot.filename # www_distilled_net.png
+	screenshot.path # /tmp/www_distilled_net.png
+	screenshot.directory # /tmp
+	screenshot.ext # png
 
 If you want to would like to pass the file type in as a parameter for whatever reason, then that is easy:
 
 	heimdall.save("https://www.distilled.net/", format="PNG", device="Galaxy S3")
 
+You can specify an `optimize` flag should you want the image optimized on save:
+
+	heimdall.png("https://www.distilled.net/", optimize=True , device="Galaxy S3")
+
+optimize
+
 # To Do
 
-- Lots
+- It would be nice to resolve the device-pixel-ratio issue. PhantomJS is moving from QtWebKit to a Blink based engine, so hopefully we will see this resolved down the line.
+- renderafter functionality to wait a certain amount of time before screenshotting
 
 # Why Heimdall?
 
