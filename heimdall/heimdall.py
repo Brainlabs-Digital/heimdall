@@ -1,9 +1,14 @@
+from collections import namedtuple
 import os
 import re
 import subprocess
 
+from PIL import Image
+
 from devices import heimdallDevice
 
+
+Screenshot = namedtuple('Screenshot', ['path', 'directory', 'filename', 'ext'])
 
 def save(url, *args, **kwargs):
 
@@ -13,7 +18,13 @@ def save(url, *args, **kwargs):
     kwargs['height'] = kwargs.get('height', None) or device.height
     kwargs['user_agent'] = kwargs.get('user_agent', None) or device.user_agent
 
-    screenshot(url, **kwargs)
+    screenshot_image = screenshot(url, **kwargs)
+
+    if kwargs.get('optimize'):
+        image = Image.open(screenshot_image.path)
+        image.save(screenshot_image.path, optimize=True)
+
+    return screenshot_image
 
 
 def png(url, *args, **kwargs):
@@ -36,7 +47,10 @@ def screenshot(url, *args, **kwargs):
     phantomscript = os.path.join(os.path.dirname(__file__),
                                  'take_screenshot.js')
 
+    directory = kwargs.get('save_dir', '/tmp')
     image_name = kwargs.get('image_name', None) or _image_name_from_url(url)
+    ext = kwargs.get('format', 'png')
+    save_path = os.path.join(directory, image_name) + '.' + ext
 
     cmd_args = [
         'phantomjs',
@@ -50,14 +64,12 @@ def screenshot(url, *args, **kwargs):
         '--useragent',
         str(kwargs['user_agent']),
         '--dir',
-        str(kwargs.get('save_dir', '/tmp')),
+        directory,
         '--ext',
-        str(kwargs.get('format', 'png').lower()),
+        ext,
         '--name',
         str(image_name),
     ]
-
-    print cmd_args
 
     # TODO:
     # - croptovisible
@@ -69,9 +81,7 @@ def screenshot(url, *args, **kwargs):
     output = subprocess.Popen(cmd_args,
                               stdout=subprocess.PIPE).communicate()[0]
 
-    print output
-
-    # return save_path
+    return Screenshot(save_path, directory, image_name + '.' + ext, ext)
 
 
 def _image_name_from_url(url):
