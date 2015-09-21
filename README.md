@@ -53,8 +53,6 @@ You can specify an `optimize` flag should you want the image optimized on save:
 
 	heimdall.png("https://www.distilled.net/", optimize=True , device="Galaxy S3")
 
-optimize
-
 # To Do
 
 - It would be nice to resolve the device-pixel-ratio issue. PhantomJS is moving from QtWebKit to a Blink based engine, so hopefully we will see this resolved down the line.
