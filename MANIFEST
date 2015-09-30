@@ -5,5 +5,3 @@ heimdall/__init__.py
 heimdall/devices.py
 heimdall/heimdall.py
 heimdall/take_screenshot.py
-heimdall/take_screenshot.js
-heimdall/optparse.js
