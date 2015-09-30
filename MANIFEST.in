@@ -1,0 +1,2 @@
+include heimdall/optparse.js
+include heimdall/take_screenshot.js
