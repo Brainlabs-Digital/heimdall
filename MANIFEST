@@ -4,4 +4,6 @@ setup.py
 heimdall/__init__.py
 heimdall/devices.py
 heimdall/heimdall.py
+heimdall/optparse.js
+heimdall/take_screenshot.js
 heimdall/take_screenshot.py
