@@ -15,7 +15,9 @@ NOTE: Heimdall uses PhantomJS and as such does not fully support device-pixel-ra
 Firstly, you need to install [phantomjs](http://phantomjs.org/):
 
 	npm install phantomjs
-
+	
+If you get any problems try: npm install -g phantomjs
+	
 Then simply install Heimdall via pip:
 
 	pip install heimdall
@@ -24,9 +26,11 @@ You should now be good to go.
 
 # Using Heimdall
 
+
+
 Quick and easy:
 
-	import heimdall
+	from heimdall import heimdall
 
 	heimdall.png("https://www.distilled.net/", device="Kindle Fire")
 	heimdall.jpeg("https://www.facebook.com/", device="iPhone") # Will use iPhone 6
