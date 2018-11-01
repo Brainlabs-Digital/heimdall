@@ -1,4 +1,4 @@
-from heimdall import screenshot
+from heimdall.heimdall import screenshot
 
 
 if __name__ == '__main__':
